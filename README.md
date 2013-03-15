@@ -3,19 +3,21 @@ Java Example
 
 Describes how to send an event to the Whatsnexx TicketBusService RESTful web service from a Java project in the Eclipse IDE. In this example, the request is sent by making an HttpUrlConnection and sending the request through the connections OutputStream. The response is then read using a Scanner and displayed as a String.
 
-<h5>View examples in <a href="https://github.com/whatsnexx/C-Sharp-Example">C#</a> and <a href="https://github.com/whatsnexx/PHP_Example">PHP</a>.</h5>
+<h5>View examples in <a href="https://github.com/whatsnexx/C_Sharp_Tutorial">C#</a> and <a href="https://github.com/whatsnexx/PHP_Tutorial">PHP</a>.</h5>
 Getting Started
-------------------------------
-The Whatsnexx <b>ticketbus</b> handles REST and SOAP Web Service request to send events. The following demonstrates how to send a RESTful request to the<b> Whatsnexx TicketBusService</b> using Java.
-###You Will Need:
-1. <b>Account Id:</b> Provided by Whatsnexx.
-2. <b>Username:</b> Provided by Whatsnexx.
-2. <b>Password:</b> Provided by Whatsnexx.
-3. <b>TermName:</b> This is the name of the event that is to be triggered by the send event.
-4. <b>SubjectCode:</b> The unique identifier for your subject. This usually represents <b>who</b> you would like to send the event to.
-5. <b>SubjectTypeId:</b> A unique identitfier for the subject type. The subject type defines the context under which events are sent.
-6. <b>ExecutionEnvironment:</b> Specifies the Whatsnexx environment you are sending the event request. A <b>Constellation</b> must exist in the chosen environment for the event to be triggered. The available Environments are: Test, Stage, and Production.
-7. <b>Attributes:</b> A list of attributes that are used by the event.
+------------------------------  
+The whatsnexx [ticketbus](https://github.com/whatsnexx/whatsnexx.github.com/wiki/7.-Ticket-Bus-Introduction) handles REST and SOAP Web Service request to send events. In this example, we will demonstrate how to send and event to the Whatsnexx ticketbus by creating a REST client using Java. You will need following to send a request to the [ticketbus](https://github.com/whatsnexx/whatsnexx.github.com/wiki/7.-Ticket-Bus-Introduction) service.
+<table width="100%" border="1px">
+<tr><th align="left">Attribute</th><th align="left">Type</th><th align="left">Description</th></tr>
+<tr><td>Account Id</td><td>GUID</td><td> Provided by Whatsnexx.</td></tr>
+<tr><td>Username:</td><td>GUID</td><td>Provided by Whatsnexx.</td></tr>
+<tr><td>Password:</td><td>GUID</td><td>Provided by Whatsnexx.</td></tr>
+<tr><td>TermName:</td><td>string</td><Td>This is the name of the event that is to be triggered by the send event.</td>
+<tr><td>SubjectCode:</td><td>string</td><Td>The unique identifier for your [subject](). This usually represents <b>who</b> you would like to send the event to.</td></tr>
+<tr><td>SubjectTypeId:</td><td>GUID</td><td>A unique identitfier for the subject type. The subject type defines the context under which events are sent.</td></tr>
+<tr><td>ExecutionEnvironment:</td><td>TicketBusService.ExecutionEnvironments</td><td>Specifies the Whatsnexx environment you are sending the event request. A <b>Constellation</b> must exist in the chosen environment for the event to be triggered. The available Environments are: Test, Stage, and Production.</td></tr>
+<tr><td>Attributes:</td><td>TicketBusService.Attributes[]</td><Td>A list of attributes that are used by the event.</td></tr>
+</table>
 
 Steps
 -----------
@@ -96,7 +98,7 @@ Import <b>javax.net.ssl.SSLContext</b> and <b>java.security.SecureRandom</b> and
 ```
 ###4. Open an HttpUrlConnection and set the SocketFactory to the one that you just created
 ```java
-		URL url = new URL("https://localhost/TicketbusService/Rest/ticketbusservice.svc/SendEvent/{accountId}/{subjectTypeId}/{termName}/{executionEnvironment}/{subjectCode|");
+		URL url = new URL("https://ticketbus.whatsnexx.com/Rest/TicketBusService.svcSendEvent/{accountId}/{subjectTypeId}/{termName}/{executionEnvironment}/{subjectCode|");
 		
 		HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
 		
@@ -158,7 +160,7 @@ The <b>AttributeList</b> will makeup the body of the resquest.
 
 Getting Help
 -----------
-[Whatsnexx API Documentation](http://whatsnexx.github.com/)  
+[Whatsnexx API Documentation](http://whatsnexx.github.com)  
 
 
 *****
