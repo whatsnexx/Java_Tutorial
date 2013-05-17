@@ -98,7 +98,7 @@ Import <b>javax.net.ssl.SSLContext</b> and <b>java.security.SecureRandom</b> and
 ```
 ###4. Open an HttpUrlConnection and set the SocketFactory to the one that you just created
 ```java
-		URL url = new URL("https://ticketbus.whatsnexx.com/Rest/TicketBusService.svc/SendEvent/{accountId}/{subjectTypeId}/{termName}/{executionEnvironment}/{subjectCode|");
+		URL url = new URL("https://ticketbus.whatsnexx.com/Rest/TicketBusService.svc/SendEvent/{accountId}/{subjectTypeId}/{termName}/{executionEnvironment}/{subjectCode}");
 		
 		HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
 		
